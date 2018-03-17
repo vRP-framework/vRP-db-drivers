@@ -18,6 +18,8 @@ local function on_query(name, params, mode)
   local query = queries[name]
 
   local _params = {}
+  _params._ = true -- force as dictionary
+
   for k,v in pairs(params) do
     _params["@"..k] = v
   end
@@ -34,7 +36,6 @@ local function on_query(name, params, mode)
     end)
   else
     API:QueryResultAsync(query, _params, function(rows)
-      print(json.encode(rows))
       r(rows, #rows)
     end)
   end
@@ -42,4 +43,6 @@ local function on_query(name, params, mode)
   return r:wait()
 end
 
-vRP.registerDBDriver("ghmattimysql", on_init, on_prepare, on_query)
+async(function()
+  vRP.registerDBDriver("ghmattimysql", on_init, on_prepare, on_query)
+end)
