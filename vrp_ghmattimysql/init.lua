@@ -43,6 +43,6 @@ local function on_query(name, params, mode)
   return r:wait()
 end
 
-async(function()
+Citizen.CreateThread(function()
   vRP.registerDBDriver("ghmattimysql", on_init, on_prepare, on_query)
 end)
