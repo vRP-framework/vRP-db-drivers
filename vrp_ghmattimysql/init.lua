@@ -44,5 +44,6 @@ local function on_query(name, params, mode)
 end
 
 Citizen.CreateThread(function()
+  API:Query("SELECT 1") -- multiple Buffer issue fix
   vRP.registerDBDriver("ghmattimysql", on_init, on_prepare, on_query)
 end)
