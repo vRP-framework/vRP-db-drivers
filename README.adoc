@@ -1,0 +1,20 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+= Driver list
+
+== GHMattiMySQL
+
+[horizontal]
+name:: `ghmattimysql`
+resource:: `vrp_ghmattimysql`
+project:: https://github.com/GHMatti/FiveM-MySQL
+
+NOTE: GHMattiMySQL resource is required.
+
+WARNING: The database config information is not supported with vRP, use GHMattiMySQL configuration instead.
