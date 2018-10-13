@@ -2,19 +2,18 @@
 local Proxy = module("vrp", "lib/Proxy")
 local vRP = Proxy.getInterface("vRP")
 
-local API = exports["GHMattiMySQL"]
+local interface = {}
+Proxy.addInterface("vrp_ghmattimysql", interface)
 
-local function on_init(cfg) -- no init (external connection)
-  return API ~= nil
-end
+local API = exports["GHMattiMySQL"]
 
 local queries = {}
 
-local function on_prepare(name, query)
+function interface.onPrepare(name, query)
   queries[name] = query
 end
 
-local function on_query(name, params, mode)
+function interface.onQuery(name, params, mode)
   local query = queries[name]
 
   local _params = {}
@@ -43,7 +42,7 @@ local function on_query(name, params, mode)
   return r:wait()
 end
 
-Citizen.CreateThread(function()
+async(function()
   API:Query("SELECT 1") -- multiple Buffer issue fix
-  vRP.registerDBDriver("ghmattimysql", on_init, on_prepare, on_query)
+  vRP.loadScript("vrp_ghmattimysql", "init_vrp")
 end)
