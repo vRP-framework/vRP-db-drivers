@@ -1,5 +1,3 @@
-local Proxy = module("vrp", "lib/Proxy")
-
 local DBDriver = class("ghmattimysql", vRP.DBDriver)
 
 function DBDriver:onInit(cfg)
