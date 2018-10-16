@@ -2,6 +2,14 @@
 local Proxy = module("vrp", "lib/Proxy")
 local vRP = Proxy.getInterface("vRP")
 
+local function blob2string(blob)
+  for i,c in pairs(blob) do
+    blob[i] = string.char(c)
+  end
+
+  return table.concat(blob)
+end
+
 local interface = {}
 Proxy.addInterface("vrp_ghmattimysql", interface)
 
@@ -35,6 +43,14 @@ function interface.onQuery(name, params, mode)
     end)
   else
     API:QueryResultAsync(query, _params, function(rows)
+      for _,row in pairs(rows) do
+        for k,v in pairs(row) do
+          if type(v) == "table" then
+            row[k] = blob2string(v)
+          end
+        end
+      end
+
       r(rows, #rows)
     end)
   end
