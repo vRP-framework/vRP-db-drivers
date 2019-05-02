@@ -62,4 +62,6 @@ function DBDriver:onQuery(name, params, mode)
   return r:wait()
 end
 
-vRP:registerDBDriver(DBDriver)
+async(function()
+  vRP:registerDBDriver(DBDriver)
+end)
