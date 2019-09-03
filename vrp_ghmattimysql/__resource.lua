@@ -9,5 +9,6 @@ dependencies{
 -- server scripts
 server_scripts{ 
   "@vrp/lib/utils.lua",
-  "init.lua"
+  "init.lua",
+  "init_vrp.lua"
 }
