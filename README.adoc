@@ -17,4 +17,15 @@ project:: https://github.com/GHMatti/FiveM-MySQL
 
 NOTE: GHMattiMySQL resource is required.
 
-WARNING: The database config information is not supported with vRP, use GHMattiMySQL configuration instead.
+WARNING: The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead.
+
+== GHMattiMySQL (JS)
+
+[horizontal]
+name:: `ghmattimysql-js`
+resource:: `vrp_ghmattimysql-js`
+project:: https://github.com/GHMatti/ghmattimysql
+
+NOTE: GHMattiMySQL resource is required.
+
+WARNING: The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead.
