@@ -28,4 +28,6 @@ project:: https://github.com/GHMatti/ghmattimysql
 
 NOTE: GHMattiMySQL resource is required.
 
-WARNING: The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead.
+[WARNING]
+The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead. +
+The `multipleStatements` option must be enabled.
