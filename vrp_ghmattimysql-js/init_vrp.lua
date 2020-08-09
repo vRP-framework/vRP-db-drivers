@@ -4,7 +4,7 @@ local DBDriver = class("ghmattimysql-js", vRP.DBDriver)
 
 local function blob2string(blob)
   local data = {}
-  for k,v in pairs(blob) do data[tonumber(k)+1] = string.char(v) end
+  for i, byte in ipairs(blob) do data[i] = string.char(byte) end
   return table.concat(data)
 end
 
