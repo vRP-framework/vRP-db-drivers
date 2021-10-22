@@ -31,3 +31,16 @@ NOTE: GHMattiMySQL resource is required.
 [WARNING]
 The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead. +
 The `multipleStatements` option must be enabled.
+
+== oxmysql
+
+[horizontal]
+name:: `oxmysql`
+resource:: `vrp_oxmysql`
+project:: https://github.com/overextended/oxmysql/
+
+NOTE: oxmysql resource is required.
+
+[WARNING]
+The vRP database configuration is not supported; oxmysql configuration must be used instead. +
+The `multipleStatements` option must be enabled in the connection string (e.g., `mysql://root:password@localhost/vrp?multipleStatements=true`).
