@@ -3,11 +3,12 @@ local DBDriver = class("oxmysql", vRP.DBDriver)
 -- STATIC
 
 local function blob2string(blob)
-  for i,c in pairs(blob) do
-    blob[i] = string.char(c)
+  local data = {}
+  for k, byte in pairs(blob) do
+    data[tonumber(k) + 1] = string.char(byte)
   end
 
-  return table.concat(blob)
+  return table.concat(data)
 end
 
 -- METHODS
