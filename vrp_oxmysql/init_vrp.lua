@@ -15,8 +15,7 @@ end
 
 function DBDriver:onInit(cfg)
   self.queries = {}
-  self.API = exports["oxmysql"]
-  return self.API ~= nil
+  return MySQL ~= nil
 end
 
 function DBDriver:onPrepare(name, query)
@@ -33,11 +32,11 @@ function DBDriver:onQuery(name, params, mode)
   end
 
   if mode == "execute" then
-    return self.API:updateSync(query, _params)
+    return MySQL.update.await(query, _params)
   elseif mode == "scalar" then
-    return self.API:scalarSync(query, _params)
+    return MySQL.scalar.await(query, _params)
   else
-    local result = self.API:executeSync(query, _params)
+    local result = MySQL.query.await(query, _params)
 
     -- last insert id backwards compatibility
     if query:find(";.-SELECT.+LAST_INSERT_ID%(%)") then
