@@ -39,7 +39,7 @@ name:: `oxmysql`
 resource:: `vrp_oxmysql`
 project:: https://github.com/overextended/oxmysql/
 
-NOTE: oxmysql resource is required.
+NOTE: oxmysql resource 2.0.1 or later is required.
 
 [WARNING]
 The vRP database configuration is not supported; oxmysql configuration must be used instead. +

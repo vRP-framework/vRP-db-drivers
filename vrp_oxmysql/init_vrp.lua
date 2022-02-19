@@ -4,8 +4,8 @@ local DBDriver = class("oxmysql", vRP.DBDriver)
 
 local function blob2string(blob)
   local data = {}
-  for k, byte in pairs(blob) do
-    data[tonumber(k) + 1] = string.char(byte)
+  for index,byte in ipairs(blob) do
+    table.insert(data, string.char(byte))
   end
 
   return table.concat(data)
@@ -32,28 +32,36 @@ function DBDriver:onQuery(name, params, mode)
     _params["@"..k] = v
   end
 
+  local r = async()
+
   if mode == "execute" then
-    return self.API:updateSync(query, _params)
+    self.API:update(query, _params, function (affectedRows)
+      r(affectedRows or 0)
+    end)
   elseif mode == "scalar" then
-    return self.API:scalarSync(query, _params)
+    self.API:scalar(query, _params, function (result)
+      r(result)
+    end)
   else
-    local result = self.API:executeSync(query, _params)
-
-    -- last insert id backwards compatibility
-    if query:find(";.-SELECT.+LAST_INSERT_ID%(%)") then
-      return { { id = result[1].insertId } }, result[1].affectedRows
-    end
-
-    for _,row in pairs(result) do
-      for k,v in pairs(row) do
-        if type(v) == "table" then
-          row[k] = blob2string(v)
+    self.API:query(query, _params, function (result)
+      -- last insert id backwards compatibility
+      if query:find(";.-SELECT.+LAST_INSERT_ID%(%)") then
+        r({ { id = result[1].insertId } }, result[1].affectedRows)
+      end
+  
+      for _,row in pairs(result) do
+        for k,v in pairs(row) do
+          if type(v) == "table" then
+            row[k] = blob2string(v)
+          end
         end
       end
-    end
-
-    return result, #result
+  
+      r(result, #result)
+    end)
   end
+
+  return r:wait()
 end
 
 async(function()
