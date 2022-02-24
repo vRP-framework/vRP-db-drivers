@@ -39,6 +39,8 @@ name:: `oxmysql`
 resource:: `vrp_oxmysql`
 project:: https://github.com/overextended/oxmysql/
 
+NOTE: Legacy vRP users - Use the `vrp_oxmysql` resource found here (https://github.com/KokeroO/oxmysql-vrp-legacy) along with `oxmysql`.
+
 NOTE: oxmysql resource 2.0.1 or later is required.
 
 [WARNING]
