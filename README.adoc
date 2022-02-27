@@ -10,10 +10,12 @@ endif::[]
 
 == GHMattiMySQL
 
+NOTE: GHMattiMySQL has been discontined by the resource developer. Only proceed with the GHMattiMySQL driver if you have the GHMattiMySQL resource.
+
 [horizontal]
-name:: `ghmattimysql`
+name:: `ghmattimysql` 
 resource:: `vrp_ghmattimysql`
-project:: https://github.com/GHMatti/FiveM-MySQL
+project:: https://github.com/GHMatti/FiveM-MySQL (resource removed)
 
 NOTE: GHMattiMySQL resource is required.
 
@@ -24,7 +26,7 @@ WARNING: The vRP database configuration is not supported; GHMattiMySQL configura
 [horizontal]
 name:: `ghmattimysql-js`
 resource:: `vrp_ghmattimysql-js`
-project:: https://github.com/GHMatti/ghmattimysql
+project:: https://github.com/GHMatti/ghmattimysql (resource removed)
 
 NOTE: GHMattiMySQL resource is required.
 
