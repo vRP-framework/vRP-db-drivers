@@ -26,24 +26,18 @@ end
 function DBDriver:onQuery(name, params, mode)
   local query = self.queries[name]
 
-  local _params = { _ = true }
-
-  for k,v in pairs(params) do
-    _params["@"..k] = v
-  end
-
   local r = async()
 
   if mode == "execute" then
-    self.API:update(query, _params, function (affectedRows)
+    self.API:update(query, params, function (affectedRows)
       r(affectedRows or 0)
     end)
   elseif mode == "scalar" then
-    self.API:scalar(query, _params, function (result)
+    self.API:scalar(query, params, function (result)
       r(result)
     end)
   else
-    self.API:query(query, _params, function (result)
+    self.API:query(query, params, function (result)
       -- last insert id backwards compatibility
       if query:find(";.-SELECT.+LAST_INSERT_ID%(%)") then
         r({ { id = result[1].insertId } }, result[1].affectedRows)
