@@ -8,32 +8,6 @@ endif::[]
 
 = Driver list
 
-== GHMattiMySQL
-
-NOTE: GHMattiMySQL has been discontined by the resource developer. Only proceed with the GHMattiMySQL driver if you have the GHMattiMySQL resource.
-
-[horizontal]
-name:: `ghmattimysql` 
-resource:: `vrp_ghmattimysql`
-project:: https://github.com/GHMatti/FiveM-MySQL (resource removed)
-
-NOTE: GHMattiMySQL resource is required.
-
-WARNING: The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead.
-
-== GHMattiMySQL (JS)
-
-[horizontal]
-name:: `ghmattimysql-js`
-resource:: `vrp_ghmattimysql-js`
-project:: https://github.com/GHMatti/ghmattimysql (resource removed)
-
-NOTE: GHMattiMySQL resource is required.
-
-[WARNING]
-The vRP database configuration is not supported; GHMattiMySQL configuration must be used instead. +
-The `multipleStatements` option must be enabled.
-
 == oxmysql
 
 [horizontal]
