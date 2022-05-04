@@ -17,7 +17,7 @@ project:: https://github.com/overextended/oxmysql/
 
 NOTE: Legacy vRP users - Use the `vrp_oxmysql` resource found here (https://github.com/KokeroO/oxmysql-vrp-legacy) along with `oxmysql`.
 
-NOTE: oxmysql resource 2.0.1 or later is required.
+NOTE: oxmysql latest release is recommended. Lowest version usable is 2.0.1
 
 [WARNING]
 The vRP database configuration is not supported; oxmysql configuration must be used instead. +
