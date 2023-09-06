@@ -8,6 +8,17 @@ endif::[]
 
 = Driver list
 
+== icmysql
+
+[horizontal]
+name:: `icmysql`
+resource:: `vrp_icmysql`
+project:: https://github.com/IceClusters/icmysql/
+
+[WARNING]
+The vRP database configuration is not supported; icmysql configuration must be used instead. +
+Connection string: `set mysqlCredentials_1 "host=127.0.0.1;user=root; password=; database=vrp; port=3306"`
+
 == oxmysql
 
 [horizontal]
