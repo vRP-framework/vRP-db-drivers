@@ -24,7 +24,7 @@ Connection string: `set mysqlCredentials_1 "host=127.0.0.1;user=root; password=;
 [horizontal]
 name:: `oxmysql`
 resource:: `vrp_oxmysql`
-project:: https://github.com/overextended/oxmysql/
+project:: https://github.com/CommunityOx/oxmysql
 
 NOTE: Legacy vRP users - Use the `vrp_oxmysql` resource found here (https://github.com/KokeroO/oxmysql-vrp-legacy) along with `oxmysql`.
 
